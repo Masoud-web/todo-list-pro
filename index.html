@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Todo List Pro</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📝 Todo List Pro</h1>
+
+    <div class="addTask">
+
+        <input
+            type="text"
+            id="taskInput"
+            placeholder="کار جدید را وارد کنید...">
+
+        <button onclick="addTask()">
+
+            افزودن
+
+        </button>
+
+    </div>
+
+    <div class="searchBox">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="جستجوی کارها...">
+
+    </div>
+
+    <div class="filters">
+
+        <button>همه</button>
+
+        <button>انجام شده</button>
+
+        <button>انجام نشده</button>
+
+    </div>
+
+    <ul id="taskList">
+
+    </ul>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
