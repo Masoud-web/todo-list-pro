@@ -1,72 +1,189 @@
-<!DOCTYPE html>
-<html lang="fa">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-<head>
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f4f6f9;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
 
-    <meta charset="UTF-8">
+.container{
+    width:100%;
+    max-width:650px;
+    background:#ffffff;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+h1{
+    text-align:center;
+    color:#333;
+    margin-bottom:25px;
+}
 
-    <title>Todo List Pro</title>
+.addTask{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
 
-    <link rel="stylesheet" href="style.css">
+.addTask input{
+    flex:1;
+    padding:12px;
+    font-size:16px;
+    border:2px solid #ddd;
+    border-radius:10px;
+}
 
-</head>
+.addTask input:focus{
+    outline:none;
+    border-color:#0d6efd;
+}
 
-<body>
+.addTask button{
+    padding:12px 20px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.2s;
+}
 
-<div class="container">
+.addTask button:hover{
+    background:#0b5ed7;
+}
 
-    <h1>📝 Todo List Pro</h1>
+.searchBox{
+    margin-bottom:20px;
+}
 
-    <div class="addTask">
+.searchBox input{
+    width:100%;
+    padding:12px;
+    font-size:16px;
+    border:2px solid #ddd;
+    border-radius:10px;
+}
 
-        <input
-            type="text"
-            id="taskInput"
-            placeholder="کار جدید را وارد کنید...">
+.filters{
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+}
 
-        <button onclick="addTask()">
+.filters button{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:#6c757d;
+    color:white;
+    cursor:pointer;
+    transition:.2s;
+}
 
-            افزودن
+.filters button:hover{
+    background:#5c636a;
+}
 
-        </button>
+#taskList{
+    list-style:none;
+}
 
-    </div>
+.task-item{
+    background:#f8f9fa;
+    border-left:5px solid #0d6efd;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-    <div class="searchBox">
+.task-info{
+    flex:1;
+}
 
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="جستجوی کارها...">
+.task-title{
+    font-size:18px;
+    font-weight:bold;
+    color:#333;
+}
 
-    </div>
+.task-date{
+    margin-top:5px;
+    color:#777;
+    font-size:13px;
+}
 
-    <div class="filters">
+.completed .task-title{
+    text-decoration:line-through;
+    color:#888;
+}
 
-        <button id="allBtn">همه</button>
+.actions{
+    display:flex;
+    gap:8px;
+}
 
-        <button id="doneBtn">انجام شده</button>
+.actions button{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    color:white;
+    font-size:18px;
+    transition:.2s;
+}
 
-        <button id="activeBtn">انجام نشده</button>
+.done-btn{
+    background:#198754;
+}
 
-    </div>
+.delete-btn{
+    background:#dc3545;
+}
 
-    <ul id="taskList">
+.actions button:hover{
+    transform:scale(1.1);
+}
 
-    </ul>
+#emptyMessage{
+    text-align:center;
+    color:#888;
+    margin-top:20px;
+    font-size:16px;
+}
 
-    <p id="emptyMessage">
+@media(max-width:600px){
 
-        هنوز کاری ثبت نشده است.
+    .addTask{
+        flex-direction:column;
+    }
 
-    </p>
+    .filters{
+        flex-direction:column;
+    }
 
-</div>
+    .task-item{
+        flex-direction:column;
+        align-items:flex-start;
+    }
 
-<script src="script.js"></script>
+    .actions{
+        margin-top:10px;
+        align-self:flex-end;
+    }
 
-</body>
-
-</html>
+}
