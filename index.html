@@ -1,189 +1,150 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+<!DOCTYPE html>
+<html lang="fa">
 
-body{
-    font-family:Tahoma,Arial,sans-serif;
-    background:#f4f6f9;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    padding:20px;
-}
+<head>
 
-.container{
-    width:100%;
-    max-width:650px;
-    background:#ffffff;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-}
+    <meta charset="UTF-8">
 
-h1{
-    text-align:center;
-    color:#333;
-    margin-bottom:25px;
-}
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-.addTask{
-    display:flex;
-    gap:10px;
-    margin-bottom:20px;
-}
+    <title>Todo List Pro</title>
 
-.addTask input{
-    flex:1;
-    padding:12px;
-    font-size:16px;
-    border:2px solid #ddd;
-    border-radius:10px;
-}
+    <link rel="stylesheet"
+          href="style.css">
 
-.addTask input:focus{
-    outline:none;
-    border-color:#0d6efd;
-}
+</head>
 
-.addTask button{
-    padding:12px 20px;
-    background:#0d6efd;
-    color:white;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    transition:.2s;
-}
+<body>
 
-.addTask button:hover{
-    background:#0b5ed7;
-}
+<div class="container">
 
-.searchBox{
-    margin-bottom:20px;
-}
+    <header>
 
-.searchBox input{
-    width:100%;
-    padding:12px;
-    font-size:16px;
-    border:2px solid #ddd;
-    border-radius:10px;
-}
+        <h1>📝 Todo List Pro</h1>
 
-.filters{
-    display:flex;
-    gap:10px;
-    margin-bottom:20px;
-}
+        <p class="subtitle">
 
-.filters button{
-    flex:1;
-    padding:10px;
-    border:none;
-    border-radius:10px;
-    background:#6c757d;
-    color:white;
-    cursor:pointer;
-    transition:.2s;
-}
+            مدیریت حرفه‌ای کارهای روزانه
 
-.filters button:hover{
-    background:#5c636a;
-}
+        </p>
 
-#taskList{
-    list-style:none;
-}
+    </header>
 
-.task-item{
-    background:#f8f9fa;
-    border-left:5px solid #0d6efd;
-    border-radius:10px;
-    padding:15px;
-    margin-bottom:12px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+    <section class="add-box">
 
-.task-info{
-    flex:1;
-}
+        <input
+            type="text"
+            id="taskInput"
+            placeholder="کار جدید را وارد کنید...">
 
-.task-title{
-    font-size:18px;
-    font-weight:bold;
-    color:#333;
-}
+        <button
+            id="addBtn"
+            onclick="addTask()">
 
-.task-date{
-    margin-top:5px;
-    color:#777;
-    font-size:13px;
-}
+            افزودن
 
-.completed .task-title{
-    text-decoration:line-through;
-    color:#888;
-}
+        </button>
 
-.actions{
-    display:flex;
-    gap:8px;
-}
+    </section>
 
-.actions button{
-    width:40px;
-    height:40px;
-    border:none;
-    border-radius:50%;
-    cursor:pointer;
-    color:white;
-    font-size:18px;
-    transition:.2s;
-}
+    <section class="search-box">
 
-.done-btn{
-    background:#198754;
-}
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 جستجوی کار">
 
-.delete-btn{
-    background:#dc3545;
-}
+    </section>
 
-.actions button:hover{
-    transform:scale(1.1);
-}
+    <section class="filter-box">
 
-#emptyMessage{
-    text-align:center;
-    color:#888;
-    margin-top:20px;
-    font-size:16px;
-}
+        <button id="allBtn">
 
-@media(max-width:600px){
+            همه
 
-    .addTask{
-        flex-direction:column;
-    }
+        </button>
 
-    .filters{
-        flex-direction:column;
-    }
+        <button id="activeBtn">
 
-    .task-item{
-        flex-direction:column;
-        align-items:flex-start;
-    }
+            انجام نشده
 
-    .actions{
-        margin-top:10px;
-        align-self:flex-end;
-    }
+        </button>
 
-}
+        <button id="doneBtn">
+
+            انجام شده
+
+        </button>
+
+    </section>
+
+    <ul id="taskList">
+
+    </ul>
+
+    <p id="emptyMessage">
+
+        هنوز کاری ثبت نشده است.
+
+    </p>
+
+    <footer class="statistics">
+
+        <div class="card">
+
+            <span>
+
+                کل
+
+            </span>
+
+            <h2 id="totalTasks">
+
+                0
+
+            </h2>
+
+        </div>
+
+        <div class="card">
+
+            <span>
+
+                انجام شده
+
+            </span>
+
+            <h2 id="completedTasks">
+
+                0
+
+            </h2>
+
+        </div>
+
+        <div class="card">
+
+            <span>
+
+                باقی مانده
+
+            </span>
+
+            <h2 id="remainingTasks">
+
+                0
+
+            </h2>
+
+        </div>
+
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
